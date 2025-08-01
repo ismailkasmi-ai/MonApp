@@ -1,0 +1,64 @@
+<Page1>:
+    MDNavigationLayout:
+        ScreenManager:
+            Screen:
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    MDTopAppBar:
+                        title: "Page 1"
+                        elevation: 10
+                        md_bg_color: app.theme_cls.primary_color
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                    MDLabel:
+                        text: "Bonjour"
+                        halign: "center"
+        MDNavigationDrawer:
+            id: nav_drawer
+            width: dp(230)
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                padding: "8dp"
+                spacing: "8dp"
+
+                Image:
+                    id: avatar
+                    size_hint: (1,1)
+                    source: "mine.png"
+
+                MDLabel:
+                    text: "Ismail"
+                    font_style: "Subtitle1"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "ismail.qhste@gmail.com"
+                    size_hint_y: None
+                    font_style: "Caption"
+                    height: self.texture_size[1]
+
+                ScrollView:
+
+                        
+                    MDList:
+
+                        OneLineIconListItem:
+                            text: "Page 2"
+                            on_release:
+                                app.switch_screen_right("page2")
+                                nav_drawer.set_state("close")
+                            IconLeftWidget:
+                                icon: "star-shooting-outline"
+                        OneLineIconListItem:
+                            text: "Page 3"
+                            on_release:
+                                app.switch_screen_right("page3")
+                                nav_drawer.set_state("close")
+                            IconLeftWidget:
+                                icon: "star-shooting-outline"
+                        OneLineIconListItem:
+                            text: "Quitter"
+                            on_press: app.close_application()
+                            IconLeftWidget:
+                                icon: "engine-off"

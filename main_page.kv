@@ -1,0 +1,104 @@
+
+<MainPage>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: "Accueil"
+            elevation: 10
+            md_bg_color: app.theme_cls.primary_color
+        
+        BoxLayout:
+            orientation:"vertical"
+            padding:"10dp","10dp"
+            spacing:"10dp"
+            #pos_hint:{'center_x': 0.5, 'center_y': 0.7}
+            pos_hint:{'center_x': 0.5, }
+            size_hint_y:None
+            height:"550dp"
+            
+            Image:
+                id:ig
+                source:app.getss(newmatricule,ig)
+                # "images/cake.jpg"
+                keep_ratio: True
+                allow_stretch: True
+                pos_hint:{'center_x': 0.5, }
+                size_hint_y:None
+                height:"500dp"
+                width:550
+                
+
+                
+            
+            MDTextField:
+                id:newmatricule
+                text:app.wdj
+                hint_text: "Enter matricule"
+                helper_text: "or click on forgot matricule"
+                helper_text_mode: "on_focus"
+                icon_right: "onepassword"
+                icon_right_color: app.theme_cls.primary_color
+                #pos_hint:{'center_x': 0.4, 'center_y': 0.38}
+         
+                pos_hint:{'center_x': 0.5, }
+                size_hint_y:None
+                height:"90dp"
+                size_hint_x:None
+                width:"180dp"
+                halign: "center"
+                #on_text_validate:app.o_t_valid(self,usern)
+                on_text:[app.o_t_valid(self,usern),app.getss(newmatricule,ig)]
+                
+                
+
+
+            MDTextField:
+                id:newList
+                text:""#app.wdj_pass
+                hint_text: "Enter Password"
+                helper_text: "or click on forgot password"
+                helper_text_mode: "on_focus"
+                icon_right: "onepassword"
+                icon_right_color: app.theme_cls.primary_color
+                #pos_hint:{'center_x': 0.6, 'center_y': 0.38}
+                pos_hint:{'center_x': 0.5, }
+                size_hint_y:None
+                height:"90dp"
+                size_hint_x:None
+                width:"180dp"
+                halign: "center"
+                password:True
+
+                #on_text_validate:app.getss()
+            
+            MDLabel:
+                id:usern
+                text:""#main.oobc#app.wdj_user #app.tis
+                font_size:"30dp"
+                bold:True
+                color:"red"
+                #pos_hint:{'center_x': 0.5, 'center_y': 0.25}
+                pos_hint:{'center_x': 0.5, }
+                size_hint_y:None
+                height:"90dp"
+                size_hint_x:None
+                width:"180dp"
+                halign: "center"
+
+            MDRectangleFlatButton:
+                text:'Show'
+                
+                
+                on_press:app.clicked(newmatricule.text,newList.text)
+                    #on_release:
+                        #app.switch_screen_left("page1")
+                        #app.change_screen("page1")
+                pos_hint:{'center_x': 0.5, }
+                size_hint_y:None
+                height:"90dp"
+                size_hint_x:None
+                width:"180dp"
+                
+                
+            
+                
